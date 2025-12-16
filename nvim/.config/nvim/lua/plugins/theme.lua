@@ -1,1 +1,1 @@
-/home/relja/.config/omarchy/current/theme/neovim.lua
+/home/mainstream/.config/omarchy/current/theme/neovim.lua
