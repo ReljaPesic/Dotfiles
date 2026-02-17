@@ -3,15 +3,16 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       -- Completely replace the default sections
-      local function macro_recording()
-        local reg = vim.fn.reg_recording()
-        return reg ~= "" and "recording @" .. reg or ""
-      end
       opts.sections = {
         lualine_a = { "mode" },
-        lualine_b = { macro_recording },
+        lualine_b = { "branch" },
         lualine_c = { "filename" },
-        lualine_x = {},
+        lualine_x = {
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+          },
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       }
